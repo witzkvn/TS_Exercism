@@ -17,7 +17,8 @@ export class GradeSchool {
   }
 
   roster() {
-    return this._roster;
+    const prevent = JSON.parse(JSON.stringify(this._roster));
+    return prevent;
   }
 
   add(name: string, grade: number) {
@@ -37,7 +38,7 @@ export class GradeSchool {
   }
 
   grade(grade: number) {
-    let value = [...this._roster[grade]];
-    return value === undefined ? [] : value;
+    let value = this._roster[grade];
+    return value === undefined ? [] : [...value];
   }
 }
